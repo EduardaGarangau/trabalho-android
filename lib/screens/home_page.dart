@@ -1,5 +1,6 @@
 import 'package:clinica_up/models/teste_model.dart';
 import 'package:clinica_up/services/testes_service.dart';
+import 'package:clinica_up/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,8 +13,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  void initState() {
+    super.initState();
+    Provider.of<TestesService>(context, listen: false).getTestes();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final service = Provider.of<TestesService>(context);
+    final lista = service.testes;
 
     return Scaffold(
       appBar: AppBar(
@@ -40,32 +48,18 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Container(),
+      body: ListView.builder(
+        itemCount: lista.length,
+        itemBuilder: (context, index) {
+          return Text(lista[index].nome);
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         //Floating Button para adicionar teste
         child: const Icon(Icons.add),
         backgroundColor: const Color.fromRGBO(6, 48, 96, 1),
         onPressed: () {
-          final teste = Teste(
-            id: 'a1',
-            quant: 2,
-            nome: 'nome teste',
-            sigla: 'sigla teste',
-            construto: 'constructo teste',
-            contexto: 'contexto teste',
-            idade: 'idade teste',
-            aplicacao: 'aplicacao teste',
-            tempoDeAplicacao: 'tempo teste',
-            correcao: 'correcao teste',
-            validade: 'validade teste',
-            objetivo: 'objetivo teste',
-            publicoAlvo: 'publico teste',
-            descricao: 'descricao teste',
-            itens: 'itens teste',
-            profissionaisAplicantes: 'profissionais teste',
-          );
-
-          service.addTeste(teste);
+          Navigator.of(context).pushNamed(AppRoutes.FORM);
         },
       ),
     );

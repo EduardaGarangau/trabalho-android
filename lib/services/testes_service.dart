@@ -18,6 +18,7 @@ class TestesService with ChangeNotifier {
     _testes.clear();
     final response = await http.get(Uri.parse('$_firebaseURL/testes.json'));
     // Recuperar o corpo da requisição GET
+    if (response.body == 'null') return;
     Map<String, dynamic> data = jsonDecode(response.body);
     // Cria um Teste para cada item do corpo da requisição GET e adiciona a lista _testes
     data.forEach((testeId, testeData) {
@@ -117,24 +118,7 @@ class TestesService with ChangeNotifier {
     if (index >= 0) {
       await http.patch(
         Uri.parse('$_firebaseURL/testes/${teste.id}.json'),
-        body: jsonEncode({
-          'id': teste.id,
-          'quant': teste.quant,
-          'nome': teste.nome,
-          'sigla': teste.sigla,
-          'construto': teste.construto,
-          'contexto': teste.contexto,
-          'idade': teste.idade,
-          'aplicacao': teste.aplicacao,
-          'tempoDeAplicacao': teste.tempoDeAplicacao,
-          'correcao': teste.correcao,
-          'validade': teste.validade,
-          'objetivo': teste.objetivo,
-          'publicoAlvo': teste.publicoAlvo,
-          'descricao': teste.descricao,
-          'itens': teste.itens,
-          'profissionaisAplicantes': teste.profissionaisAplicantes,
-        }),
+        body: teste.toJson(),
       );
 
       _testes[index] = teste;
