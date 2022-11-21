@@ -1,5 +1,7 @@
+import 'dart:convert';
+
 class Teste {
-  final int id;
+  final String id;
   final int quant;
   final String nome;
   final String sigla;
@@ -34,4 +36,27 @@ class Teste {
     required this.itens,
     required this.profissionaisAplicantes,
   });
+
+  // Adapters
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'quant': quant,
+      'nome': nome,
+      'sigla': sigla,
+      'construto': construto,
+      'contexto': contexto,
+      'idade': idade,
+      'aplicacao': aplicacao,
+      'tempoDeAplicacao': tempoDeAplicacao,
+      'correcao': correcao,
+      'validade': validade,
+      'objetivo': objetivo,
+      'publicoAlvo': publicoAlvo,
+      'descricao': descricao,
+      'itens': itens,
+      'profissionaisAplicantes': profissionaisAplicantes,
+    };
+  }
+
+  String toJson() => jsonEncode(toMap());
 }

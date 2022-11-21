@@ -1,6 +1,8 @@
 import 'package:clinica_up/screens/home_page.dart';
 import 'package:clinica_up/screens/splash_screen.dart';
+import 'package:clinica_up/services/testes_service.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +13,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'UP - Clinica de Psicologia',
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => TestesService()),
+      ],
+      child: MaterialApp(
+        title: 'UP - Clinica de Psicologia',
+        debugShowCheckedModeBanner: false,
+        home: HomePage(),
+      ),
     );
   }
 }
