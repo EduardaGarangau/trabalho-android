@@ -1,3 +1,4 @@
+import 'package:clinica_up/components/teste_item.dart';
 import 'package:clinica_up/models/teste_model.dart';
 import 'package:clinica_up/services/testes_service.dart';
 import 'package:clinica_up/utils/app_routes.dart';
@@ -48,11 +49,36 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: ListView.builder(
-        itemCount: lista.length,
-        itemBuilder: (context, index) {
-          return Text(lista[index].nome);
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Testes Disponíveis:',
+              style: TextStyle(
+                fontFamily: 'Lato',
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Color.fromRGBO(6, 48, 96, 1),
+              ),
+            ),
+            const SizedBox(height: 15),
+            Expanded(
+              child: ListView.builder(
+                itemCount: lista.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      TesteItem(teste: lista[index]),
+                      const SizedBox(height: 10),
+                    ],
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         //Floating Button para adicionar teste
