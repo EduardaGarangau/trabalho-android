@@ -34,16 +34,18 @@ class ItemDetailsField extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(width: 3),
-              Text(
-                value,
-                maxLines: 3,
-                softWrap: true,
-                overflow: TextOverflow.visible,
-                style: const TextStyle(
-                  fontFamily: 'Lato',
-                  fontSize: 16,
-                  //color: Colors.grey.shade600,
+              const SizedBox(width: 4),
+              Flexible(
+                child: Text(
+                  value,
+                  maxLines: 3,
+                  softWrap: true,
+                  overflow: TextOverflow.visible,
+                  style: const TextStyle(
+                    fontFamily: 'Lato',
+                    fontSize: 16,
+                    //color: Colors.grey.shade600,
+                  ),
                 ),
               ),
             ],

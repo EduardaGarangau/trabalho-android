@@ -1,3 +1,4 @@
+import 'package:clinica_up/models/teste_model.dart';
 import 'package:clinica_up/services/testes_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,8 +11,36 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_formData.isEmpty) {
+      final args = ModalRoute.of(context)?.settings.arguments;
+
+      if (args != null) {
+        final teste = args as Teste;
+        _formData['id'] = teste.id;
+        _formData['quant'] = teste.quant;
+        _formData['nome'] = teste.nome;
+        _formData['sigla'] = teste.sigla;
+        _formData['construto'] = teste.construto;
+        _formData['contexto'] = teste.contexto;
+        _formData['idade'] = teste.idade;
+        _formData['aplicacao'] = teste.aplicacao;
+        _formData['tempoDeAplicaçao'] = teste.tempoDeAplicacao;
+        _formData['correcao'] = teste.correcao;
+        _formData['validade'] = teste.validade;
+        _formData['objetivo'] = teste.objetivo;
+        _formData['publicoAlvo'] = teste.publicoAlvo;
+        _formData['descricao'] = teste.descricao;
+        _formData['itens'] = teste.itens;
+        _formData['profissionaisAplicantes'] = teste.profissionaisAplicantes;
+      }
+    }
+  }
+
   final _formKey = GlobalKey<FormState>();
-  final _formData = Map<String, dynamic>();
+  final _formData = <String, dynamic>{};
 
   void _submitForm() {
     final isValid = _formKey.currentState?.validate() ?? false;
@@ -62,6 +91,7 @@ class _FormPageState extends State<FormPage> {
           child: ListView(
             children: [
               TextFormField(
+                initialValue: _formData['nome']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Nome',
                 ),
@@ -78,6 +108,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['quant']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Quantidade',
                 ),
@@ -99,6 +130,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['sigla']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Sigla',
                 ),
@@ -115,6 +147,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['construto']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Construto',
                 ),
@@ -132,6 +165,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['contexto']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Contexto',
                 ),
@@ -148,6 +182,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['idade']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Idade',
                 ),
@@ -167,6 +202,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['aplicacao']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Aplicação',
                 ),
@@ -184,6 +220,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['tempoDeAplicacao']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Tempo de Aplicação',
                 ),
@@ -203,6 +240,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['correcao']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Correção',
                 ),
@@ -219,6 +257,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['validade']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Validade',
                 ),
@@ -235,6 +274,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['objetivo']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Objetivo',
                 ),
@@ -252,6 +292,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['publicoAlvo']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Publico-Alvo',
                 ),
@@ -268,6 +309,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['descricao']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Descrição',
                 ),
@@ -286,6 +328,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['itens'].toString(),
                 decoration: const InputDecoration(
                   labelText: 'Itens',
                 ),
@@ -303,6 +346,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
+                initialValue: _formData['profissionaisAplicantes']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Profissionais Aplicantes',
                 ),

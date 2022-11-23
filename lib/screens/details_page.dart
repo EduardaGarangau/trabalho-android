@@ -1,4 +1,5 @@
 import 'package:clinica_up/components/item_detail_field.dart';
+import 'package:clinica_up/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import '../models/teste_model.dart';
 
@@ -39,7 +40,10 @@ class _DetailsPageState extends State<DetailsPage> {
                 Icons.edit,
                 size: 25,
               ),
-              onPressed: () {},
+              onPressed: () => Navigator.of(context).pushNamed(
+                AppRoutes.FORM,
+                arguments: teste,
+              ),
             ),
           ),
         ],
@@ -96,7 +100,7 @@ class _DetailsPageState extends State<DetailsPage> {
             value: teste.descricao,
           ),
           ItemDetailsField(
-            title: 'IENS: ',
+            title: 'ITENS: ',
             value: teste.itens,
           ),
           ItemDetailsField(
