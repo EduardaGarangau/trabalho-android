@@ -1,3 +1,4 @@
+import 'package:clinica_up/screens/details_page.dart';
 import 'package:clinica_up/screens/form_page.dart';
 import 'package:clinica_up/screens/home_page.dart';
 import 'package:clinica_up/screens/splash_screen.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         home: HomePage(),
         routes: {
           AppRoutes.FORM: (context) => FormPage(),
+          AppRoutes.DETAILS: (context) => DetailsPage(),
         },
       ),
     );
