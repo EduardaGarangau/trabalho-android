@@ -1,6 +1,8 @@
 import 'package:clinica_up/components/item_detail_field.dart';
+import 'package:clinica_up/services/testes_service.dart';
 import 'package:clinica_up/utils/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../models/teste_model.dart';
 
 class DetailsPage extends StatefulWidget {
@@ -44,6 +46,48 @@ class _DetailsPageState extends State<DetailsPage> {
                 AppRoutes.FORM,
                 arguments: teste,
               ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              right: 10,
+            ),
+            child: IconButton(
+              icon: const Icon(
+                Icons.delete,
+                size: 25,
+                color: Colors.red,
+              ),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('Excluir'),
+                    content: const Text(
+                        'Tem certeza que deseja excluir esse teste?'),
+                    actions: [
+                      ElevatedButton(
+                        child: const Text('Cencelar'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey,
+                        ),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                      ElevatedButton(
+                        child: const Text('Deletar'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                        ),
+                        onPressed: () {
+                          Provider.of<TestesService>(context, listen: false)
+                              .removeTeste(teste);
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ],

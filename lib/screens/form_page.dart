@@ -328,7 +328,7 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               TextFormField(
-                initialValue: _formData['itens'].toString(),
+                initialValue: _formData['itens']?.toString(),
                 decoration: const InputDecoration(
                   labelText: 'Itens',
                 ),
