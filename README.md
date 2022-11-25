@@ -1,16 +1,27 @@
-# clinica_up
+# Trabalho Desenvolvimento de Aplicativos Móveis 
 
-A new Flutter project.
+## 2º bimestre 
 
-## Getting Started
+Trabalho desenvolvido em sala de aula em parceria com o curso de Psicologia.  
 
-This project is a starting point for a Flutter application.
+## Alunos: 
+- Eduarda Garangau Miranda
+- Julio Cesar Jubel Lopes
+- Lucas Eduardo Rocha da Silva
+- Ruan Vinicius Horstmann dos Santos
+- Isabelly de Oliveira Brasileiro 
+- Isabela Borges de Miranda Gomes
+- Júlia Ferreira de Castro 
 
-A few resources to get you started if this is your first Flutter project:
+## Fotos do Aplicativo: 
+![APP](lib/assets/images/imagens_app.PNG)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Integração com Firebase: 
+[Firebase Link](https://clinicapsico-99177-default-rtdb.firebaseio.com/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![APP](lib/assets/images/firebase.PNG)
+
+
+
+
+
