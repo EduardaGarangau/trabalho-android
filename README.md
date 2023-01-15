@@ -1,24 +1,19 @@
-# Trabalho Desenvolvimento de Aplicativos Móveis 
+# 📱 App Formulário Clínica Psicológica
 
-## 2º bimestre 
+Trabalho desenvolvido em sala de aula em parceria com o curso de Psicologia da Universidade Positivo. Desenvolver o formulário de inscrição de tratamentos disponíveis. 
 
-Trabalho desenvolvido em sala de aula em parceria com o curso de Psicologia.  
+## Desenvolvimento
+* Dart `null safety`
+* Versão Flutter `3.3.7`
+* Navegação de Tela
+* Integração com `Realtime Database Firebase`
+* Formulários
+* Gerência de Estado com `ChangeNotifier`
 
-## Alunos: 
-- Eduarda Garangau Miranda
-- Julio Cesar Jubel Lopes
-- Lucas Eduardo Rocha da Silva
-- Ruan Vinicius Horstmann dos Santos
-- Isabelly de Oliveira Brasileiro 
-- Isabela Borges de Miranda Gomes
-- Júlia Ferreira de Castro 
-
-## Fotos do Aplicativo: 
+## Resultado Final
 ![APP](lib/assets/images/imagens_app.PNG)
 
 ## Integração com Firebase: 
-[Firebase Link](https://clinicapsico-99177-default-rtdb.firebaseio.com/)
-
 ![APP](lib/assets/images/firebase.PNG)
 
 
